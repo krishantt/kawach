@@ -23,15 +23,14 @@ contract DocumentStorage {
     }
 
     // Constructor whitelists two specific users
-    constructor(address user1, address user2) {
-         whitelist[user1] = true;
-        whitelist[user2] = true;
+    constructor(address user, address government) {
+         whitelist[user] = true;
+        whitelist[government] = true;
     }
 
     // Function to upload a new document (restricted to whitelisted users)
     function uploadDocument(string memory _name, string memory _documentHash) public onlyWhitelisted {
         // Validate input
-      
 
         // Generate unique document identifier
         bytes32 documentId = keccak256(abi.encodePacked(_name, _documentHash, msg.sender));
