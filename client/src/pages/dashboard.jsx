@@ -1,6 +1,6 @@
 'use client';
 
-import { Sidebar } from 'flowbite-react';
+import { Sidebar, Card } from 'flowbite-react';
 import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from 'react-icons/hi';
 import { DarkThemeToggle, Flowbite } from 'flowbite-react';
 
@@ -8,7 +8,7 @@ function Dashboard() {
     return (
         <Flowbite>
             <DarkThemeToggle />
-
+ <div className='flex'>
             <Sidebar aria-label="Default sidebar example">
                 <Sidebar.Items>
                     <Sidebar.ItemGroup>
@@ -36,6 +36,16 @@ function Dashboard() {
                     </Sidebar.ItemGroup>
                 </Sidebar.Items>
             </Sidebar>
+
+            <Card href="#" className="w-screen h-screen">
+      <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        Noteworthy technology acquisitions 2021
+      </h5>
+      <p className="font-normal text-gray-700 dark:text-gray-400">
+        Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+      </p>
+    </Card>
+    </div>
 
         </Flowbite>
 
