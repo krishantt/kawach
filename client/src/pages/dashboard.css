@@ -1,0 +1,13 @@
+.tabs {
+    display: flex;
+    align-items: flex-start;
+    /* justify-content: center;
+    align-items: center; */
+    width: 100%; /* Ensure full width */
+    height: 100vh; /* Ensure full height */
+  }
+  
+#form-comp {
+    display: flex;
+    align-items:flex-end;
+}

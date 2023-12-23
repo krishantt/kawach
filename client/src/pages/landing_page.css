@@ -1,0 +1,31 @@
+.land{
+  display: 'flex';
+  justify-content: center;
+  /* align-items: center; */
+  height: 60%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 10%;
+
+
+}
+
+
+
+
+
+
+/* .land {
+    background-color: black;
+
+  height: screen;
+  width: 100%;
+  background-image: url(../assets/images/landing.jpg);
+  background-position: center;
+  display: 'flex';
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+} */
