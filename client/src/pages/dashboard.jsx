@@ -1,6 +1,6 @@
 'use client';
 
-import { Sidebar, Card, Card } from 'flowbite-react';
+import { Sidebar, Card} from 'flowbite-react';
 import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from 'react-icons/hi';
 import { DarkThemeToggle, Flowbite } from 'flowbite-react';
 
@@ -8,7 +8,6 @@ function Dashboard() {
     return (
         <Flowbite>
             <DarkThemeToggle />
- <div className='flex'>
  <div className='flex'>
             <Sidebar aria-label="Default sidebar example">
                 <Sidebar.Items>
@@ -56,7 +55,6 @@ function Dashboard() {
         Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
       </p>
     </Card>
-    </div>
         </Flowbite>
     );
 }
