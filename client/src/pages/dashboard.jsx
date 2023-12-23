@@ -6,13 +6,29 @@ import { FaBookOpen } from "react-icons/fa";
 import { IoCloudUploadSharp } from "react-icons/io5";
 import { IoQrCode } from "react-icons/io5";
 import { FiLogOut } from "react-icons/fi";
+import { FaUserCircle } from "react-icons/fa";
 
 function Component() {
   return (
     <div className="tabs">
       <Tabs aria-label="Default tabs">
         <Tabs.Item active title="Profile" icon={HiUserCircle}>
-        <img class="w-20 h-20 rounded-full" src="https://images.app.goo.gl/BxeQxSrtFU8MwRtt6" alt="Rounded avatar"/>
+          <div className="justify-center">
+            <FaUserCircle class="text-8xl" />
+          </div>
+
+          <ul class="w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+            <li class="w-full px-4 py-2 border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+              Profile
+            </li>
+            <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">
+              Settings
+            </li>
+            <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">
+              Messages
+            </li>
+            <li class="w-full px-4 py-2 rounded-b-lg">Download</li>
+          </ul>
         </Tabs.Item>
         <Tabs.Item title="Upload-Info" icon={FaBookOpen}>
           <div class="flex flex-col">
@@ -114,7 +130,7 @@ function Component() {
                     for="floating_phone"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   >
-                    Phone number (123-456-7890)
+                    Phone number
                   </label>
                 </div>
                 <div class="relative z-0 w-full mb-5 group">
@@ -136,7 +152,7 @@ function Component() {
               </div>
               <button
                 type="submit"
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                class="text-white bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
               >
                 Submit
               </button>
@@ -178,13 +194,9 @@ function Component() {
           </div>
         </Tabs.Item>
         <Tabs.Item title="QR code" icon={IoQrCode}>
-          This is{" "}
-          <span className="font-medium text-gray-800 dark:text-white">
-            Contacts tab's associated content
-          </span>
-          . Clicking another tab will toggle the visibility of this one for the
-          next. The tab JavaScript swaps classes to control the content
-          visibility and styling.
+          <button class="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded-full">
+            Generate QR Code
+          </button>
         </Tabs.Item>
         <Tabs.Item title="Log-Out" icon={FiLogOut}>
           This is{" "}
