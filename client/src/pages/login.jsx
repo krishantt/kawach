@@ -12,49 +12,49 @@ import { useNavigate } from 'react-router-dom';
 
 
 function LoginForm() {
-//     const [email, setEmail] = React.useState("");
-//     const [password, setPassword] = React.useState("");
-//     const navigate = useNavigate();
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
+    const navigate = useNavigate();
     
-//     const [accounts, setAccounts] = React.useState(null);
-//     const [auth, setAuth] = React.useState(null);
+    const [accounts, setAccounts] = React.useState(null);
+    const [auth, setAuth] = React.useState(null);
 
-//     const loadAccounts = async () => {
-//     let { auth, accounts } = await loadBlockchainData();
+    const loadAccounts = async () => {
+    let { auth, accounts } = await loadBlockchainData();
 
-//     setAccounts(accounts);
-//     setAuth(auth);
-//   };
+    setAccounts(accounts);
+    setAuth(auth);
+  };
 
-//   const login = async () => {
-//     if (!email || !password) {
-//       alert("please fill all details");
+  const login = async () => {
+    if (!email || !password) {
+      alert("please fill all details");
 
-//       return;
-//     }
+      return;
+    }
 
-//     try {
-//       const res = await auth.methods.usersList(email).call();
+    try {
+      const res = await auth.methods.usersList(email).call();
 
-//       if (res.password === password) {
-//         localStorage.setItem("email", email);
-//         localStorage.setItem("account", accounts);
-//         navigate("/Home");
-//       } else {
-//         alert("wrong user credintinals or please signup");
-//       }
-//     } catch (error) {
-//       alert(error.message);
-//     }
-//   };
+      if (res.password === password) {
+        localStorage.setItem("email", email);
+        localStorage.setItem("account", accounts);
+        navigate("/Home");
+      } else {
+        alert("wrong user credintinals or please signup");
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
-//   React.useEffect(() => {
-//     loadWeb3();
-//   }, []);
+  React.useEffect(() => {
+    loadWeb3();
+  }, []);
 
-//   React.useEffect(() => {
-//     loadAccounts();
-//   }, []);
+  React.useEffect(() => {
+    loadAccounts();
+  }, []);
   return (
 <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -108,52 +108,54 @@ function LoginForm() {
 }
 
 function SignUpForm() {
-//     const [username, setUsername] = React.useState("");
-//     const [email, setEmail] = React.useState("");
-//     const [password, setPassword] = React.useState("");
+    const [username, setUsername] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
   
-//     const navigate = useNavigate();
+    const navigate = useNavigate();
   
-//     const [accounts, setAccounts] = React.useState(null);
-//     const [auth, setAuth] = React.useState(null);
+    const [accounts, setAccounts] = React.useState(null);
+    const [auth, setAuth] = React.useState(null);
   
-//     const loadAccounts = async () => {
-//       let { auth, accounts } = await loadBlockchainData();
+    const loadAccounts = async () => {
+      let { auth, accounts } = await loadBlockchainData();
   
-//       setAccounts(accounts);
-//       setAuth(auth);
-//     };
+      setAccounts(accounts);
+      setAuth(auth);
+    };
+    const dummySignup = () =>{
+        navigate('/dashboard')
+    }
+    const signUp = async () => {
+      if (!username || !email || !password) {
+        alert("please fill all details");
+        return;
+      }
+      var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if (!email.match(mailformat)) {
+        alert("please enter valid email address");
+        return;
+      }
+      try {
+        await auth.methods
+          .createUser(username, email, password)
+          .send({ from: accounts });
   
-//     const signUp = async () => {
-//       if (!username || !email || !password) {
-//         alert("please fill all details");
-//         return;
-//       }
-//       var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-//       if (!email.match(mailformat)) {
-//         alert("please enter valid email address");
-//         return;
-//       }
-//       try {
-//         await auth.methods
-//           .createUser(username, email, password)
-//           .send({ from: accounts });
+        localStorage.setItem("username", username);
+        localStorage.setItem("email", email);
+        navigate("/");
+        window.location.reload();
+      } catch (e) {
+        console.log(e.message);
+      }
+    };
+    React.useEffect(() => {
+      loadWeb3();
+    }, []);
   
-//         localStorage.setItem("username", username);
-//         localStorage.setItem("email", email);
-//         navigate("/");
-//         window.location.reload();
-//       } catch (e) {
-//         console.log(e.message);
-//       }
-//     };
-//     React.useEffect(() => {
-//       loadWeb3();
-//     }, []);
-  
-//     React.useEffect(() => {
-//       loadAccounts();
-//     }, []);
+    React.useEffect(() => {
+      loadAccounts();
+    }, []);
     return (
                     <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -211,7 +213,7 @@ function SignUpForm() {
                                 </div>
 
                                 <div>
-                                    <button type="button" className="text-white w-full bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-cyan-800" onClick={signUp}>Signup</button>
+                                    <button type="button" className="text-white w-full bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-cyan-800" onClick={()=> {setTimeout(dummySignup, 2000)}}>Signup</button>
                                     <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                                         Already have an account? <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">Signin</a>
                                     </p>
@@ -245,10 +247,10 @@ function Login() {
 
     function LoginButtons() {
         return (
-            <>
+            <div className="flex w-full h-screen items-center justify-center">
                 <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={toggleBool}>Login</button>
                 <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={toggleBool}>SignUp</button>
-            </>
+            </div>
         )
     }
     function toggleBool() {
