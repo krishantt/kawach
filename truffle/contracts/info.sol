@@ -9,7 +9,6 @@ contract info{
     struct individual_info{
         string name;
         address contact_no;
-        bool verified_by_gov;
         address []document;
 
     }

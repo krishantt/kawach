@@ -9,6 +9,7 @@ contract DocumentStorage {
 
     // Mapping to store document hashes and metadata
     mapping(bytes32 => Document) public documents;
+    mapping (address => bytes32) private hashid;
 
     // Struct to represent document metadata
     struct Document {
@@ -33,7 +34,10 @@ contract DocumentStorage {
         // Validate input
 
         // Generate unique document identifier
-        bytes32 documentId = keccak256(abi.encodePacked(_name, _documentHash, msg.sender));
+        // bytes32 documentId = keccak256(abi.encodePacked(_name, _documentHash, msg.sender));
+        
+
+        hashid[msg.sender]=_documentHash;
 
         // Ensure document doesn't already exist
 
@@ -44,8 +48,17 @@ contract DocumentStorage {
         // });
 
         // Emit event for external tracking
-        emit DocumentUploaded(documentId, _name, _documentHash, msg.sender);
+        emit DocumentUploaded(_name, _documentHash, msg.sender);
     }
+    //adding hash
+    function add_hash(address owner,bytes32 ipfshash) private onlyWhitelisted(){
+        // map[owner]=ipfshash;
+    }
+    
+    function get_document()private view returns(bytes32 []ipfshash){
+
+    }
+
 
     // Event for tracking document uploads
     event DocumentUploaded(bytes32 indexed documentId, string name, string documentHash, address indexed uploader);
