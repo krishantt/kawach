@@ -1,9 +1,10 @@
 import { Button } from "flowbite-react";
+// import { useNavigate } from "react-router-dom";
 
 function Index() {
   return (
     <div className="flex align-center justify-center">
-      <Button>Scan Qr</Button>
+      <a href="/qr"><Button>Scan Qr</Button></a>
     </div>
   );
 }
