@@ -9,7 +9,6 @@ const QRScanner = () => {
     floating_dob: '',
     floating_temp_addr: '',
     floating_perm_addr: '',
-    floating_password: '',
     floating_first_name: '',
     floating_last_name: '',
     floating_phone: '',
@@ -29,15 +28,15 @@ const QRScanner = () => {
     return new Promise((resolve) => {
       // Hardcoded user data mapping
       const userMapping = {
-        'public_key_1': {
-          email: 'krishtimil@gmail.com',
-          dob: '2060-01-01',
-          temp_addr: 'Lalitpur',
-          perm_addr: 'Pulchowk',
-          first_name: 'Krishant',
-          last_name: 'Timalsina',
-          phone: '98xxxxxxxx',
-          company: 'ABC'
+        '3a0b2c4d5e6f7a819d3e9f68cf32578db1f997d35b5a555bf432a82ed23d2b8c': {
+          floating_email: 'krishtimil@gmail.com',
+          floating_dob: '2060-01-01',
+          floating_temp_addr: 'Lalitpur',
+          floating_perm_addr: 'Pulchowk',
+          floating_first_name: 'Krishant',
+          floating_last_name: 'Timalsina',
+          floating_phone: '98xxxxxxxx',
+          floating_company: 'ABC'
         },
       }
       setTimeout(() => {
