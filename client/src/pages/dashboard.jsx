@@ -30,14 +30,6 @@ function Component() {
     floating_phone: '',
     floating_company: ''
   })
-  // const [tempFormData, setTempFormData] = useState({
-  //   floating_email: '',
-  //   floating_password: '',
-  //   floating_first_name: '',
-  //   floating_last_name: '',
-  //   floating_phone: '',
-  //   floating_company: ''
-  // })
 
   // handle input change to replicate
   const handleInputChange = (e) => {
@@ -94,6 +86,9 @@ function Component() {
             </li>
             <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">
               Registered on : {new Date().toLocaleString()}
+            </li>
+            <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">
+              Is Verified: No
             </li>
           </ul>
         </Tabs.Item>
