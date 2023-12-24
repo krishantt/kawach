@@ -14,10 +14,51 @@ import { FileInput, Label } from "flowbite-react";
 import { Button } from 'flowbite-react';
 import { QRCode } from 'react-qrcode-logo';
 import { useNavigate } from 'react-router-dom';
+// import { useState } from "react";
 
 function Component() {
   const [showQr, setQR] = useState(false);
   const [showDocument, setDocument] = useState(false);
+  const [formData, setFormData] = useState({
+    floating_email: '',
+    floating_password: '',
+    floating_first_name: '',
+    floating_last_name: '',
+    floating_phone: '',
+    floating_company: ''
+  })
+  const [tempFormData, setTempFormData] = useState({
+    floating_email: '',
+    floating_password: '',
+    floating_first_name: '',
+    floating_last_name: '',
+    floating_phone: '',
+    floating_company: ''
+  })
+
+  // handle input change to replicate
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+  };
+
+  const handleFormChange = (e) => {
+    e.preventDefault();
+    const newFormData = {
+      floating_email: e.target.elements.floating_email.value,
+      floating_first_name: e.target.elements.floating_first_name.value,
+      floating_last_name: e.target.elements.floating_last_name.value,
+      floating_phone: e.target.elements.floating_phone.value,
+      floating_company: e.target.elements.floating_company.value,
+    }
+
+    setFormData(newFormData);
+  }
+
+
   return (
     <div className="tabs">
       <Tabs aria-label="Default tabs">
@@ -28,10 +69,16 @@ function Component() {
 
           <ul class="w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
             <li class="w-full px-4 py-2 border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-              krishtimil
+              {formData.floating_first_name} {formData.floating_last_name}
             </li>
             <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">
-              krishtimil@gmail.com
+              {formData.floating_email}
+            </li>
+            <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">
+              Phone Number : {formData.floating_phone}
+            </li>
+            <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">
+              Company : {formData.floating_company}
             </li>
             <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">
               Registered on : {new Date().toLocaleString()}
@@ -40,12 +87,14 @@ function Component() {
         </Tabs.Item>
         <Tabs.Item title="Upload-Info" icon={FaBookOpen}>
           <div className="flex flex-col">
-            <form className="max-w-md mx-auto">
+            <form className="max-w-md mx-auto" onClick={handleFormChange}>
               <div className="relative z-0 w-full mb-5 group">
                 <input
                   type="email"
                   name="floating_email"
                   id="floating_email"
+                  value={formData.floating_email}
+                  onInput={handleInputChange}
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
                   required
@@ -62,6 +111,8 @@ function Component() {
                   type="password"
                   name="floating_password"
                   id="floating_password"
+                  value={formData.floating_password}
+                  onChange={handleInputChange}
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
                   required
@@ -95,6 +146,8 @@ function Component() {
                     type="text"
                     name="floating_first_name"
                     id="floating_first_name"
+                    value={formData.floating_first_name}
+                    onChange={handleInputChange}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     placeholder=" "
                     required
@@ -111,6 +164,8 @@ function Component() {
                     type="text"
                     name="floating_last_name"
                     id="floating_last_name"
+                    value={formData.floating_last_name}
+                    onChange={handleInputChange}  
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     placeholder=" "
                     required
@@ -130,6 +185,8 @@ function Component() {
                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                     name="floating_phone"
                     id="floating_phone"
+                    value={formData.floating_phone}
+                    onChange={handleInputChange}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     placeholder=" "
                     required
@@ -146,6 +203,8 @@ function Component() {
                     type="text"
                     name="floating_company"
                     id="floating_company"
+                    value={formData.floating_company}
+                    onChange={handleInputChange}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     placeholder=" "
                     required
