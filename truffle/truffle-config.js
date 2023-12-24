@@ -70,6 +70,11 @@ module.exports = {
      port: 7545,            // Standard Ethereum port (default: none)
      network_id: "*",       // Any network (default: none)
     },
+    samrachana: {
+      host: "3.7.247.248",     // Localhost (default: none)
+      port: 8545,            // Standard Ethereum port (default: none)
+      network_id: 1337,       // Any network (default: none)
+     },
     //
     // An additional network, but with some advanced options…
     // advanced: {

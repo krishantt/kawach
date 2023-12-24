@@ -7,16 +7,16 @@ function Landing() {
     <div className="land">
       <div className="h-screen flex flex-col items-center justify-center p-6  rounded-lg ">
         <a href="#">
-          <h5 className="mb-8 text-8xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h5 className="mb-12 text-8xl font-bold tracking-tight text-gray-900 dark:text-white">
             Rastriya Kawach
           </h5>
         </a>
-        <p className="mb-8 text-2xl font-normal text-gray-700 dark:text-gray-400">
-          A secure platform for identity management keeping user privacy and security in mind.
+        <p className="mb-12 text-3xl font-normal text-gray-700 dark:text-gray-400">
+        From ink-stained pages to chain of blocks, your rights secured.
         </p>
         <a
           href="/login"
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="inline-flex items-center px-3 py-2 text-1xl font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           Know more
           <svg
