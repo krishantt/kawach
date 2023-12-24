@@ -227,7 +227,7 @@ function SignUpForm() {
 
 function Forms() {
     return (
-        <>
+        <div className="flex justify-center items-center h-screen">
             <Tabs aria-label="Default tabs" style="default">
                 <Tabs.Item active title="Login" icon={HiUserCircle}>
                     <LoginForm></LoginForm>
@@ -236,7 +236,7 @@ function Forms() {
                 <SignUpForm></SignUpForm>
                 </Tabs.Item>
             </Tabs>
-        </>
+        </div>
     )
 }
 
