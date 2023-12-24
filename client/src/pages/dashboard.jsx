@@ -21,20 +21,23 @@ function Component() {
   const [showDocument, setDocument] = useState(false);
   const [formData, setFormData] = useState({
     floating_email: '',
+    floating_dob: '',
+    floating_temp_addr: '',
+    floating_perm_addr: '',
     floating_password: '',
     floating_first_name: '',
     floating_last_name: '',
     floating_phone: '',
     floating_company: ''
   })
-  const [tempFormData, setTempFormData] = useState({
-    floating_email: '',
-    floating_password: '',
-    floating_first_name: '',
-    floating_last_name: '',
-    floating_phone: '',
-    floating_company: ''
-  })
+  // const [tempFormData, setTempFormData] = useState({
+  //   floating_email: '',
+  //   floating_password: '',
+  //   floating_first_name: '',
+  //   floating_last_name: '',
+  //   floating_phone: '',
+  //   floating_company: ''
+  // })
 
   // handle input change to replicate
   const handleInputChange = (e) => {
@@ -69,10 +72,19 @@ function Component() {
 
           <ul class="w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
             <li class="w-full px-4 py-2 border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-              {formData.floating_first_name} {formData.floating_last_name}
+              Name: {formData.floating_first_name} {formData.floating_last_name}
             </li>
             <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">
-              {formData.floating_email}
+              EmailL: {formData.floating_email}
+            </li>
+            <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">
+              DOB: {formData.floating_dob}
+            </li>
+            <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">
+              Temporary Address: {formData.floating_temp_addr}
+            </li>
+            <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">
+              Permanent Address: {formData.floating_perm_addr}
             </li>
             <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">
               Phone Number : {formData.floating_phone}
@@ -104,6 +116,61 @@ function Component() {
                   className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                 >
                   Email address
+                </label>
+              </div>
+              <div className="relative z-0 w-full mb-5 group">
+                <input
+                  type="text"
+                  pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                  name="floating_dob"
+                  id="floating_dob"
+                  value={formData.floating_dob}
+                  onInput={handleInputChange}
+                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  placeholder=" "
+                  required
+                />
+                <label
+                  for="floating_dob"
+                  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  DOB (YYYY-MM-DD BS)
+                </label>
+              </div>
+              <div className="relative z-0 w-full mb-5 group">
+                <input
+                  type="text"
+                  name="floating_temp_addr"
+                  id="floating_temp_addr"
+                  value={formData.floating_temp_addr}
+                  onInput={handleInputChange}
+                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  placeholder=" "
+                  required
+                />
+                <label
+                  for="floating_temp_addr"
+                  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Temporary Address
+                </label>
+              </div>
+              <div className="relative z-0 w-full mb-5 group">
+                <input
+                  type="text"
+                  name="floating_perm_addr"
+                  id="floating_perm_addr"
+                  value={formData.floating_perm_addr}
+                  onInput={handleInputChange}
+                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  placeholder=" "
+                  required
+                />
+                <label
+                  for="floating_temp_addr"
+                  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Permanent Address
                 </label>
               </div>
               <div className="relative z-0 w-full mb-5 group">
@@ -182,7 +249,7 @@ function Component() {
                 <div className="relative z-0 w-full mb-5 group">
                   <input
                     type="tel"
-                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                    pattern="[0-9]{10}"
                     name="floating_phone"
                     id="floating_phone"
                     value={formData.floating_phone}
@@ -195,7 +262,7 @@ function Component() {
                     for="floating_phone"
                     className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   >
-                    Phone number (123-456-7890)
+                    Phone number
                   </label>
                 </div>
                 <div className="relative z-0 w-full mb-5 group">
@@ -213,7 +280,7 @@ function Component() {
                     for="floating_company"
                     className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   >
-                    Company (Ex. Google)
+                    Company
                   </label>
                 </div>
               </div>
