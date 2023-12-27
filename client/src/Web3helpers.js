@@ -1,4 +1,4 @@
-import Web3 from 'web3';
+import Web3 from "web3";
 
 import Auth from "./contracts/Auth.json";
 
@@ -21,8 +21,6 @@ export const loadBlockchainData = async () => {
   const accounts = await web3.eth.getAccounts();
 
   // Network ID
-
-  
 
   const networkId = await web3.eth.net.getId();
 

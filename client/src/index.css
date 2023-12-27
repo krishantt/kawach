@@ -33,8 +33,7 @@ body {
   height: 100vh;
   /* background-image: url('./assets/images/landing.jpg'); */
   background-repeat: no-repeat;
-  background-size:  cover;
-
+  background-size: cover;
 }
 
 /* h1 {

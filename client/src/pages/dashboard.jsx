@@ -11,25 +11,25 @@ import { useState } from "react";
 import document from "../assets/images/front.jpg";
 import qr from "../assets/images/front.jpg";
 import { FileInput, Label } from "flowbite-react";
-import { Button } from 'flowbite-react';
-import { QRCode } from 'react-qrcode-logo';
-import { useNavigate } from 'react-router-dom';
+import { Button } from "flowbite-react";
+import { QRCode } from "react-qrcode-logo";
+import { useNavigate } from "react-router-dom";
 // import { useState } from "react";
 
 function Component() {
   const [showQr, setQR] = useState(false);
   const [showDocument, setDocument] = useState(false);
   const [formData, setFormData] = useState({
-    floating_email: '',
-    floating_dob: '',
-    floating_temp_addr: '',
-    floating_perm_addr: '',
-    floating_password: '',
-    floating_first_name: '',
-    floating_last_name: '',
-    floating_phone: '',
-    floating_company: ''
-  })
+    floating_email: "",
+    floating_dob: "",
+    floating_temp_addr: "",
+    floating_perm_addr: "",
+    floating_password: "",
+    floating_first_name: "",
+    floating_last_name: "",
+    floating_phone: "",
+    floating_company: "",
+  });
 
   // handle input change to replicate
   const handleInputChange = (e) => {
@@ -48,11 +48,10 @@ function Component() {
       floating_last_name: e.target.elements.floating_last_name.value,
       floating_phone: e.target.elements.floating_phone.value,
       floating_company: e.target.elements.floating_company.value,
-    }
+    };
 
     setFormData(newFormData);
-  }
-
+  };
 
   return (
     <div className="tabs">
@@ -227,7 +226,7 @@ function Component() {
                     name="floating_last_name"
                     id="floating_last_name"
                     value={formData.floating_last_name}
-                    onChange={handleInputChange}  
+                    onChange={handleInputChange}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     placeholder=" "
                     required
@@ -290,28 +289,35 @@ function Component() {
         </Tabs.Item>
         <Tabs.Item title="Upload Docs" icon={IoCloudUploadSharp}>
           <div className="flex flex-col w-full items-center justify-center">
-          <div className="mb-2">
-        <div>
-          <Label htmlFor="small-file-upload" value="Upload your Document" />
-        </div>
-        <FileInput id="small-file-upload" sizing="l" />
-      </div>
-    <Button onClick={()=> setTimeout(()=> setDocument(true), 2000)}>Upload</Button>
-    {showDocument ? <img src={document}></img> : <></>}
-
-      </div>
+            <div className="mb-2">
+              <div>
+                <Label
+                  htmlFor="small-file-upload"
+                  value="Upload your Document"
+                />
+              </div>
+              <FileInput id="small-file-upload" sizing="l" />
+            </div>
+            <Button onClick={() => setTimeout(() => setDocument(true), 2000)}>
+              Upload
+            </Button>
+            {showDocument ? <img src={document}></img> : <></>}
+          </div>
         </Tabs.Item>
         <Tabs.Item title="QR code" icon={IoQrCode}>
           <button
             class="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded-full"
-            onClick={() => setTimeout(()=> setQR(true), 2000)}
+            onClick={() => setTimeout(() => setQR(true), 2000)}
           >
             Generate QR Code
           </button>
-          {showQr ? <QRCode value="3a0b2c4d5e6f7a819d3e9f68cf32578db1f997d35b5a555bf432a82ed23d2b8c"></QRCode> : <></>}
+          {showQr ? (
+            <QRCode value="3a0b2c4d5e6f7a819d3e9f68cf32578db1f997d35b5a555bf432a82ed23d2b8c"></QRCode>
+          ) : (
+            <></>
+          )}
         </Tabs.Item>
-        <Tabs.Item title="Log-Out" icon={FiLogOut} href='/login'>
-        </Tabs.Item>
+        <Tabs.Item title="Log-Out" icon={FiLogOut} href="/login"></Tabs.Item>
       </Tabs>
     </div>
   );

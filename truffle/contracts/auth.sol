@@ -2,7 +2,6 @@
 pragma solidity >=0.6.12 <0.9.0;
 
 contract UserAuth {
-
     // Mapping to store user data
     mapping(address => UserData) public users;
 
@@ -30,7 +29,11 @@ contract UserAuth {
     // Function to login an existing user
     function login(string memory _password) public {
         require(users[msg.sender].authorized, "User not found or unauthorized");
-        require(users[msg.sender].passwordHash == keccak256(abi.encodePacked(_password)), "Incorrect password");
+        require(
+            users[msg.sender].passwordHash ==
+                keccak256(abi.encodePacked(_password)),
+            "Incorrect password"
+        );
         emit LoggedIn(msg.sender);
     }
 }

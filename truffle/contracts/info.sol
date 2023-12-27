@@ -2,16 +2,16 @@
 //// SPDX-License-Identifier: MIT
 pragma solidity >=0.6.12 <0.9.0;
 
-contract info{
-    mapping (address => bool) public whitelist;
-    mapping (address => User) private users;
+contract info {
+    mapping(address => bool) public whitelist;
+    mapping(address => User) private users;
 
     event userRegistered(address _userAddress, string _name);
     event userUpdated(address _userAddress, string _name);
 
     // event DocumentUploaded(bytes32 indexed documentId, string name, string documentHash, address indexed uploader);
 
-    struct User{
+    struct User {
         string name;
         string contact_num;
         string[] documents;
@@ -32,8 +32,9 @@ contract info{
         whitelist[_governmentAddr] = true;
     }
 
-
-    function isUserRegistered(address userAddress) internal view returns (bool) {
+    function isUserRegistered(
+        address userAddress
+    ) internal view returns (bool) {
         // return bytes(users[userAddress].name).length > 0;
         return users[userAddress].lastUpdated != 0;
     }
@@ -54,7 +55,10 @@ contract info{
 
     function updateUser(User memory _user) public {
         require(isUserRegistered(msg.sender));
-        require(block.timestamp - users[msg.sender].lastUpdated >= 1 days, "User can only update once per day");
+        require(
+            block.timestamp - users[msg.sender].lastUpdated >= 1 days,
+            "User can only update once per day"
+        );
         users[msg.sender].name = _user.name;
         users[msg.sender].contact_num = _user.contact_num;
         users[msg.sender].documents = _user.documents;
@@ -71,8 +75,9 @@ contract info{
         // emit DocumentUploaded(documentId, _fileName, _documentHash, msg.sender);
     }
 
-    function getUser (address _address) public view onlyWhitelisted returns (User memory) {
+    function getUser(
+        address _address
+    ) public view onlyWhitelisted returns (User memory) {
         return users[_address];
     }
-    
 }

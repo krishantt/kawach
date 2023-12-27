@@ -1,7 +1,6 @@
 import React from "react";
 import "./landing_page.css";
 
-
 function Landing() {
   return (
     <div className="land">
@@ -12,7 +11,7 @@ function Landing() {
           </h5>
         </a>
         <p className="mb-12 text-3xl font-normal text-gray-700 dark:text-gray-400">
-        From ink-stained pages to chain of blocks, your rights secured.
+          From ink-stained pages to chain of blocks, your rights secured.
         </p>
         <a
           href="/login"
